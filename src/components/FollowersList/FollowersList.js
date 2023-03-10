@@ -5,11 +5,17 @@ import { Link } from "react-router-dom";
 
 export default function FollowersList() {
   const [followers, setFollowers] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchFollowers = async () => {
-      const data = await axios.get("https://randomuser.me/api/?results=5");
-      setFollowers(data?.data?.results);
+      try {
+        setLoading(true);
+        const data = await axios.get("https://randomuser.me/api/?results=5");
+        setFollowers(data?.data?.results);
+      } catch (error) {
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchFollowers();
@@ -17,11 +23,13 @@ export default function FollowersList() {
 
   return (
     <div className="followerslist-container">
-      <div data-testid={`follower-item-0`} className="follower-item"></div>
+      {loading ? "Loading..." : null}
+
       <div>
         {followers?.length > 0 &&
           followers.map((follower, index) => (
             <div
+              key={index}
               data-testid={`follower-item-${index}`}
               className="follower-item"
             >
