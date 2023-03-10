@@ -66,9 +66,9 @@ describe("FollowersList", () => {
       await waitForElementToBeRemoved(() => screen.getByText("Loading..."));
     });
 
-    it("renders the photos", () => {
+    it("renders the photos", async () => {
       // component có render ra 1 item có text là Hello World
-      const followerDivElement = screen.getByText("Laith");
+      const followerDivElement = await screen.findByTestId(`follower-item-0`);
       expect(followerDivElement).toBeInTheDocument();
     });
   });
