@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import HeaderComponent from "../components/header";
+import HeaderComponent from "./../components/Header1/Header";
 
 it("renders learn react link", async () => {
   render(<HeaderComponent title="My Header" />);

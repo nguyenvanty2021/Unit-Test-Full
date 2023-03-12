@@ -29,7 +29,7 @@ it("should render same text passed into title prop 2", () => {
 
 it("should render same text passed into title prop 3", () => {
   render(<Header title="todo" />);
-  const h2Element = screen.getByTestId("header-2");
+  const h2Element = screen.getByTestId("header-1");
   expect(h2Element).toBeInTheDocument();
 });
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AddInput from "../AddInput/AddInput";
-import Header from "../Header copy/Header";
+import Header from "../Header1/Header";
 import TodoList from "../TodoList/TodoList";
 import "./Todo.css";
 
